@@ -1,0 +1,33 @@
+nav a {
+  height: 100%;
+  
+}
+nav ul a.active {
+  border-bottom-color: #0BCE83;
+  border-bottom-width: 3px;
+  /* background: #000; */
+}
+nav a:hover {
+  background-color: #558b76;
+}
+
+.password-strength-meter {
+  text-align: left;
+}
+
+.password-strength-meter-label {
+  font-size:  12px;
+}
+
+.strength-Weak span {
+  color: #ff0400;
+}
+.strength-Fair span {
+  color: #ffcc00;
+}
+.strength-Good span {
+  color: #00b3ff;
+}
+.strength-Strong span {
+  color: #03b11a;
+}

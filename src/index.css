@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* select :-webkit-autofill:focus{
+    border: 1px solid #253341;
+} */

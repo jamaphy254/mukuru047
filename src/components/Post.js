@@ -100,7 +100,7 @@ const Post = ({ item, user_id, admin }) => {
             className="absolute right-6  mr-2 text-2xl cursor-pointer"
           />
         ) : null} */}
-        {toggle ? (
+        {/* {toggle ? (
           <div className="bg-secondary flex flex-col justify-center w-28 h-12">
             <p
               onClick={() => DeletePost(item.post_id)}
@@ -109,7 +109,7 @@ const Post = ({ item, user_id, admin }) => {
               Delete
             </p>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
       <div className="flex flex-col items-center">
         <p

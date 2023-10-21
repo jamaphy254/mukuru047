@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { BsChatDots } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
-// import { SlOptionsVertical } from "react-icons/sl";
+import { SlOptionsVertical } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import TotalLikes from "./TotalLikes";
 import TotalComments from "./TotalComments";
@@ -26,7 +26,7 @@ const Post = ({ item, user_id, admin }) => {
       .catch((err) => alert(err));
   };
 
-  // const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   // let row;
   // let prevOpenedRow;
@@ -94,13 +94,13 @@ const Post = ({ item, user_id, admin }) => {
           </p>
           <p className="font-poppins text-xs text-[#888]">{item.created_on}</p>
         </div>
-        {/* {item.user_id === user_id || admin === "Admin" ? (
+        {item.user_id === user_id || admin === "Admin" ? (
           <SlOptionsVertical
             onClick={() => setToggle((prev) => !prev)}
             className="absolute right-6  mr-2 text-2xl cursor-pointer"
           />
-        ) : null} */}
-        {/* {toggle ? (
+        ) : null}
+        {toggle ? (
           <div className="bg-secondary flex flex-col justify-center w-28 h-12">
             <p
               onClick={() => DeletePost(item.post_id)}
@@ -109,7 +109,7 @@ const Post = ({ item, user_id, admin }) => {
               Delete
             </p>
           </div>
-        ) : null} */}
+        ) : null}
       </div>
       <div className="flex flex-col items-center">
         <p

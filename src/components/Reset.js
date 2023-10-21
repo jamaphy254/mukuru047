@@ -41,26 +41,29 @@ const Reset = ({ name, show, back }) => {
 
   const url = "http://localhost/mukuru047-backend/forget.php";
 
-  const HandleSubmit = useCallback((e) => {
-    e.preventDefault();
-    let fData = new FormData();
-    fData.append("code", code);
-    fData.append("username", username);
-    fData.append("email", email);
-    fData.append("reset", "reset");
+  const HandleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      let fData = new FormData();
+      fData.append("code", code);
+      fData.append("username", username);
+      fData.append("email", email);
+      fData.append("reset", "reset");
 
-    axios
-      .post(url, fData)
-      .then((res) => {
-        setAlert(res.data.alert);
-        if (res.data.status === "200") {
-          localStorage.removeItem("alert");
-          localStorage.removeItem("code");
-        }
-      })
-      .catch((err) => alert(err));
-    clearInputs();
-  });
+      axios
+        .post(url, fData)
+        .then((res) => {
+          setAlert(res.data.alert);
+          if (res.data.status === "200") {
+            localStorage.removeItem("alert");
+            localStorage.removeItem("code");
+          }
+        })
+        .catch((err) => alert(err));
+      clearInputs();
+    },
+    [code, email, username]
+  );
 
   useEffect(() => {
     const code = localStorage.getItem("code");

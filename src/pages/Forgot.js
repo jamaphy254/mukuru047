@@ -29,36 +29,39 @@ const Forgot = () => {
 
   const url = "https://mukuru1.000webhostapp.com/forget.php";
 
-  const HandleSubmit = useCallback((e) => {
-    e.preventDefault();
+  const HandleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
 
-    if (!name) {
-      setAlert("Name is required!");
-    } else if (!username) {
-      setAlert("Username is required!");
-    } else {
-      let fData = new FormData();
-      fData.append("name", Name);
-      fData.append("username", Username);
-      fData.append("forget", "forget");
+      if (!name) {
+        setAlert("Name is required!");
+      } else if (!username) {
+        setAlert("Username is required!");
+      } else {
+        let fData = new FormData();
+        fData.append("name", Name);
+        fData.append("username", Username);
+        fData.append("forget", "forget");
 
-      axios
-        .post(url, fData)
-        .then((res) => {
-          setAlert(res.data.alert);
-          console.log(res.data);
-          if (res.data.status === "200") {
-            window.localStorage.setItem("username", res.data.username);
-            window.localStorage.setItem("email", res.data.email);
-            window.localStorage.setItem("code", res.data.code);
-            window.localStorage.setItem("alert", res.data.alert1);
-          }
-        })
-        .catch((err) => alert(err));
+        axios
+          .post(url, fData)
+          .then((res) => {
+            setAlert(res.data.alert);
+            console.log(res.data);
+            if (res.data.status === "200") {
+              window.localStorage.setItem("username", res.data.username);
+              window.localStorage.setItem("email", res.data.email);
+              window.localStorage.setItem("code", res.data.code);
+              window.localStorage.setItem("alert", res.data.alert1);
+            }
+          })
+          .catch((err) => alert(err));
 
-      clearInputs();
-    }
-  });
+        clearInputs();
+      }
+    },
+    [Name, Username, name, username]
+  );
 
   const [verify, setVerify] = useState();
   useEffect(() => {

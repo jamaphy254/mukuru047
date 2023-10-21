@@ -32,7 +32,11 @@ const Comments = () => {
 
   let like_user_id;
 
-  const url1 = "http://localhost/mukuru047-backend/comments.php";
+  // Convert first letter to uppercase and rest to lowercase
+  const Comment =
+    comment.charAt(0).toUpperCase() + comment.slice(1).toLowerCase();
+
+  const url1 = "https://mukuru1.000webhostapp.com/comments.php";
 
   const AddComment = (e) => {
     e.preventDefault();
@@ -40,7 +44,7 @@ const Comments = () => {
     let fData = new FormData();
     fData.append("post_id", state.post_id);
     fData.append("user_id", user_id);
-    fData.append("comment_text", comment);
+    fData.append("comment_text", Comment);
 
     axios
       .post(url1, fData)
@@ -52,7 +56,7 @@ const Comments = () => {
     setComment("");
   };
 
-  const url = "http://localhost/mukuru047-backend/likes.php";
+  const url = "https://mukuru1.000webhostapp.com/likes.php";
 
   const ADDLike = () => {
     let fData = new FormData();
@@ -73,8 +77,8 @@ const Comments = () => {
       navigate("/login");
     }
 
-    const url = "http://localhost/mukuru047-backend/comments.php";
-    const url1 = "http://localhost/mukuru047-backend/likes.php";
+    const url = "https://mukuru1.000webhostapp.com/comments.php";
+    const url1 = "https://mukuru1.000webhostapp.com/likes.php";
 
     Promise.all([
       axios.get(url, { params: { post_id: post_id } }),
@@ -131,7 +135,7 @@ const Comments = () => {
                   {state.user_profile ? (
                     <img
                       className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                      src={`http://localhost/mukuru047-backend/${state.user_profile}`}
+                      src={`https://mukuru1.000webhostapp.com/${state.user_profile}`}
                       alt="profile"
                     />
                   ) : (
@@ -158,7 +162,7 @@ const Comments = () => {
                   {state.post_media ? (
                     <img
                       className="w-[95%] 2xl:h-[490px] rounded-md"
-                      src={`http://localhost/mukuru047-backend/${state.post_media}`}
+                      src={`https://mukuru1.000webhostapp.com/${state.post_media}`}
                       alt="profile"
                     />
                   ) : null}

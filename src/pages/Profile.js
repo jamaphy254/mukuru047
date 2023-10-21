@@ -23,12 +23,13 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [user_profile, setUser_profile] = useState("");
 
-  const url = "http://localhost/mukuru047-backend/profile.php";
+  const url = "https://mukuru1.000webhostapp.com/profile.php";
 
   const ChangePhoto = (e) => {
     e.preventDefault();
 
     let fData = new FormData();
+    fData.append("upload", "upload");
     fData.append("user_id", user_id);
     fData.append("user_profile", user_profile);
     fData.append("current_user_profile", data.user_profile);
@@ -47,13 +48,11 @@ const Profile = () => {
     setUser_profile("");
   };
 
-  const dlt = "Delete";
-
   const DeletePhoto = (e) => {
     e.preventDefault();
 
     let fData = new FormData();
-    fData.append("delete", dlt);
+    fData.append("delete", "delete");
     fData.append("user_id", user_id);
     fData.append("current_user_profile", data.user_profile);
 
@@ -70,7 +69,7 @@ const Profile = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "http://localhost/mukuru047-backend/profile.php";
+    const url = "https://mukuru1.000webhostapp.com/profile.php";
 
     axios.get(url, { params: { user_id: user_id } }).then((res) => {
       setData(res.data[0]);
@@ -113,7 +112,7 @@ const Profile = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`http://localhost/mukuru047-backend/${data.user_profile}`}
+                  src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
                   alt="profile"
                 />
               ) : (

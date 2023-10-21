@@ -27,7 +27,7 @@ const Forgot = () => {
   const Username =
     username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
-  const url = "http://localhost/mukuru047-backend/forget.php";
+  const url = "https://mukuru1.000webhostapp.com/forget.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -132,7 +132,9 @@ const Forgot = () => {
             </div>
           </div>
         ) : (
-          <Reset name={HandleSubmit} back={goBack} show={verify} />
+          <div className="flex justify-center items-center">
+            <Reset name={HandleSubmit} back={goBack} show={verify} />
+          </div>
         )}
       </div>
     </>

@@ -48,7 +48,7 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const url = "http://localhost/mukuru047-backend/profile.php";
+    const url = "https://mukuru1.000webhostapp.com/profile.php";
 
     axios.get(url, { params: { user_id: user_id } }).then((res) => {
       setData(res.data[0]);
@@ -87,8 +87,8 @@ const Header = () => {
           </CustomLink>
         </li>
         <li className="text-xl font-semibold  md:text-2xl text-secondary font-poppins">
-          <CustomLink to="/chats">
-            Chats
+          <CustomLink to="/people">
+            People
             {/* <BsChatDots className="text-2xl" /> */}
           </CustomLink>
         </li>
@@ -102,7 +102,7 @@ const Header = () => {
         ) : data.user_profile ? (
           <img
             className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-            src={`http://localhost/mukuru047-backend/${data.user_profile}`}
+            src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
             alt="profile"
           />
         ) : (

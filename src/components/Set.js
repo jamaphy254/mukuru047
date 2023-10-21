@@ -75,7 +75,7 @@ const Set = ({ back }) => {
     clearInputs();
   };
   return (
-    <div className="flex flex-col justify-center relative px-6 pt-5 pb-3 w-[85%] lg:w-[60%] 2xl:w-[30%] rounded-xl 2xl:rounded-none 2xl:rounded-r-xl shadow-2xl 2xl:h-[490px] bg-secondary">
+    <div className="flex flex-col justify-center relative px-6 pt-5 pb-3 w-[95%] lg:w-[60%] 2xl:w-[30%] rounded-xl 2xl:rounded-none 2xl:rounded-r-xl shadow-2xl 2xl:h-[490px] bg-secondary">
       <h3 className="text-center text-slate-800 text-3xl font-semibold pb-2">
         Create new password
       </h3>

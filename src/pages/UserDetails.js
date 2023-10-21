@@ -21,7 +21,7 @@ const UserDetails = () => {
       navigate("/login");
     }
 
-    const url = "http://localhost/mukuru047-backend/profile.php";
+    const url = "https://mukuru1.000webhostapp.com/profile.php";
 
     axios.get(url, { params: { user_id: state } }).then((res) => {
       setData(res.data[0]);
@@ -56,7 +56,7 @@ const UserDetails = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`http://localhost/mukuru047-backend/${data.user_profile}`}
+                  src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
                   alt="profile"
                 />
               ) : (
@@ -64,14 +64,14 @@ const UserDetails = () => {
               )}
             </div>
             <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
-              <div className="flex flex-col p-2 font-poppins w-[315px]">
-                <div className="flex flex-col items-start w-full ">
+              <div className="flex flex-col p-2 font-poppins w-[315px] gap-2">
+                <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">
                   <p className="text-base sm:text-sm text-[#888] font-poppins">
                     Name
                   </p>
-                  <p className="text-lg sm:text-sm font-poppins">{data.name}</p>
+                  <p className="text-lg sm:text-sm font-poppins">{data.nam}</p>
                 </div>
-                <div className="flex flex-col items-start w-full ">
+                <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">
                   <p className="text-base sm:text-sm text-[#888] font-poppins">
                     Username
                   </p>
@@ -80,13 +80,24 @@ const UserDetails = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-col items-start w-full ">
+                <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">
                   <p className="text-base sm:text-sm text-[#888] font-poppins">
                     Email
                   </p>
                   <p className="text-lg sm:text-sm font-poppins">
                     {data.user_email}
                   </p>
+                </div>
+                <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">
+                  <p className="text-base sm:text-sm text-[#888] font-poppins">
+                    About
+                  </p>
+                  <input
+                    className="px-1 bg-transparent text-lg sm:text-sm font-poppins w-[100%] focus:outline-none"
+                    readOnly={true}
+                    type="text"
+                    value={data.user}
+                  />
                 </div>
 
                 <div className="flex flex-col justify-center items-center mt-10 mb-5 ">

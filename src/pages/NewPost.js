@@ -24,7 +24,11 @@ const NewPost = () => {
   const [post_text, setPost_text] = useState("");
   const [post_media, setPost_Media] = useState("");
 
-  const url = "http://localhost/mukuru047-backend/posts.php";
+  // Convert first letter to uppercase and rest to lowercase
+  const text =
+    post_text.charAt(0).toUpperCase() + post_text.slice(1).toLowerCase();
+
+  const url = "https://mukuru1.000webhostapp.com/posts.php";
 
   const UploadPost = (e) => {
     e.preventDefault();
@@ -32,7 +36,7 @@ const NewPost = () => {
     let fData = new FormData();
     fData.append("user_id", user_id);
     fData.append("post_media", post_media);
-    fData.append("post_text", post_text);
+    fData.append("post_text", text);
     fData.append("add", "add");
 
     axios

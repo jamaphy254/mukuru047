@@ -10,7 +10,7 @@ import TotalComments from "./TotalComments";
 const Post = ({ item, user_id, admin }) => {
   const navigate = useNavigate();
 
-  const url = "http://localhost/mukuru047-backend/likes.php";
+  const url = "https://mukuru1.000webhostapp.com/likes.php";
 
   const ADDLike = (post_id) => {
     let fData = new FormData();
@@ -39,7 +39,7 @@ const Post = ({ item, user_id, admin }) => {
   //   prevOpenedRow = row[index];
   // };
 
-  const url1 = "http://localhost/mukuru047-backend/posts.php";
+  const url1 = "https://mukuru1.000webhostapp.com/posts.php";
 
   const DeletePost = (post_id) => {
     let fData = new FormData();
@@ -68,7 +68,7 @@ const Post = ({ item, user_id, admin }) => {
           {item.user_profile ? (
             <img
               className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-              src={`http://localhost/mukuru047-backend/${item.user_profile}`}
+              src={`https://mukuru1.000webhostapp.com/${item.user_profile}`}
               alt="profile"
             />
           ) : (
@@ -94,12 +94,12 @@ const Post = ({ item, user_id, admin }) => {
           </p>
           <p className="font-poppins text-xs text-[#888]">{item.created_on}</p>
         </div>
-        {item.user_id === user_id || admin === "Admin" ? (
+        {/* {item.user_id === user_id || admin === "Admin" ? (
           <SlOptionsVertical
             onClick={() => setToggle((prev) => !prev)}
             className="absolute right-6  mr-2 text-2xl cursor-pointer"
           />
-        ) : null}
+        ) : null} */}
         {toggle ? (
           <div className="bg-secondary flex flex-col justify-center w-28 h-12">
             <p
@@ -123,7 +123,7 @@ const Post = ({ item, user_id, admin }) => {
         {item.post_media ? (
           <img
             className="w-[97%] 2xl:h-[490px] rounded-md"
-            src={`http://localhost/mukuru047-backend/${item.post_media}`}
+            src={`https://mukuru1.000webhostapp.com/${item.post_media}`}
             alt=""
           />
         ) : null}

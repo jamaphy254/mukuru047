@@ -3,7 +3,51 @@ import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 
-const ChangeUserData = ({ user_id, closeBox, title, placeholder }) => {
+const ChangeUserData = ({
+  user_id,
+  closeBox,
+  title,
+  placeholder,
+  about_value,
+}) => {
+  const [newName, setNewName] = useState("");
+  const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [about, setAbout] = useState(
+    title === "Change About" ? about_value : ""
+  );
+  const [newPassword, setNewPassword] = useState("");
+  const [confNewPassword, setConfNewPassword] = useState("");
+  const [password, setPassword] = useState("");
+
+  const clearInputs = () => {
+    setNewName("");
+    setNewUsername("");
+    setNewEmail("");
+    setNewPassword("");
+    setConfNewPassword("");
+    setPassword("");
+  };
+
+  // Convert first letter of each word to uppercase
+  const Name = newName
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+
+  // Convert first letter to uppercase and rest to lowercase
+  const Username =
+    newUsername.charAt(0).toUpperCase() + newUsername.slice(1).toLowerCase();
+
+  // Convert first letter to lowercase and rest to lowercase
+  const Email =
+    newEmail.charAt(0).toLowerCase() + newEmail.slice(1).toLowerCase();
+
+  const About = about.charAt(0).toUpperCase() + about.slice(1).toLowerCase();
+
   const [Alert, setAlert] = useState("");
   const [toggle, setToggle] = useState(false);
   const [toggle1, setToggle1] = useState(false);
@@ -38,76 +82,58 @@ const ChangeUserData = ({ user_id, closeBox, title, placeholder }) => {
     }
   };
 
-  const [newName, setNewName] = useState("");
-  const [newUsername, setNewUsername] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confNewPassword, setConfNewPassword] = useState("");
-  const [password, setPassword] = useState("");
-
-  const clearInputs = () => {
-    setNewName("");
-    setNewUsername("");
-    setNewEmail("");
-    setNewPassword("");
-    setConfNewPassword("");
-    setPassword("");
-  };
-
-  // Convert first letter of each word to uppercase
-  const Name = newName
-    .toLowerCase()
-    .split(" ")
-    .map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(" ");
-
-  // Convert first letter to uppercase and rest to lowercase
-  const Username =
-    newUsername.charAt(0).toUpperCase() + newUsername.slice(1).toLowerCase();
-
-  // Convert first letter to lowercase and rest to lowercase
-  const Email =
-    newEmail.charAt(0).toLowerCase() + newEmail.slice(1).toLowerCase();
-
-  const url = "http://localhost/mukuru047-backend/profile.php";
-
-  const change = "Change";
+  const url = "https://mukuru1.000webhostapp.com/profile.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    let fData = new FormData();
 
-    if (title === "Change Name") {
-      fData.append("change_name", change);
-      fData.append("new_name", Name);
-    } else if (title === "Change Username") {
-      fData.append("change_username", change);
-      fData.append("new_username", Username);
-    } else if (title === "Change Email") {
-      fData.append("change_email", change);
-      fData.append("new_email", Email);
+    if (title === "Change Name" && !newName) {
+      setAlert("Name is required!");
+    } else if (title === "Change Username" && !newUsername) {
+      setAlert("Username is required!");
+    } else if (title === "Change Email" && !newEmail) {
+      setAlert("Email is required!");
+    } else if (title === "Change Password" && !newPassword) {
+      setAlert("New password is required!");
+    } else if (title === "Change Password" && newPassword !== confNewPassword) {
+      setAlert("Passwords do not match!");
+    } else if (title !== "Change About" && !password) {
+      setAlert("Password is required!");
     } else {
-      fData.append("change_password", change);
-      fData.append("new_password", newPassword);
-      fData.append("conf_new_password", confNewPassword);
+      let fData = new FormData();
+
+      if (title === "Change Name") {
+        fData.append("change_name", "change");
+        fData.append("new_name", Name);
+      } else if (title === "Change Username") {
+        fData.append("change_username", "change");
+        fData.append("new_username", Username);
+      } else if (title === "Change Email") {
+        fData.append("change_email", "change");
+        fData.append("new_email", Email);
+      } else if (title === "Change About") {
+        fData.append("change_about", "change");
+        fData.append("about", About);
+      } else {
+        fData.append("change_password", "change");
+        fData.append("new_password", newPassword);
+        fData.append("conf_new_password", confNewPassword);
+      }
+
+      fData.append("password", password);
+      fData.append("user_id", user_id);
+
+      axios
+        .post(url, fData)
+        .then((res) => {
+          setAlert(res.data.alert);
+          if (res.data.status === "200") {
+            closeBox();
+          }
+        })
+        .catch((err) => alert(err));
+      clearInputs();
     }
-
-    fData.append("password", password);
-    fData.append("user_id", user_id);
-
-    axios
-      .post(url, fData)
-      .then((res) => {
-        setAlert(res.data.alert);
-        if (res.data.status === "200") {
-        }
-      })
-      .catch((err) => alert(err));
-
-    clearInputs();
-    closeBox();
   };
   return (
     <div className="">
@@ -119,84 +145,102 @@ const ChangeUserData = ({ user_id, closeBox, title, placeholder }) => {
           <p className="text-[red] text-base py-2">{Alert}</p>
 
           <div className="flex flex-col justify-center  w-[250px]">
-            {title !== "Change Password" ? (
-              <input
+            {title === "Change About" ? (
+              <textarea
                 className="bg-transparent border-b-2 mb-2 p-1 py-3 border-b-primary focus:outline-none"
-                type={title !== "Change Email" ? "text" : "email"}
+                type={title}
                 name="name"
-                value={
-                  title === "Change Name"
-                    ? newName
-                    : title === "Change Username"
-                    ? newUsername
-                    : Email
-                }
-                onChange={
-                  title === "Change Name"
-                    ? (e) => setNewName(e.target.value)
-                    : title === "Change Username"
-                    ? (e) => setNewUsername(e.target.value)
-                    : (e) => setNewEmail(e.target.value)
-                }
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
                 placeholder={placeholder}
               />
-            ) : null}
-            <div className="flex justify-start items-center border-b-2 p-1 py-3 border-b-primary">
-              <input
-                className="bg-transparent w-full focus:outline-none"
-                type={type}
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="password"
-              />
-              <span className="cursor-pointer py-1 px-[2px]" onClick={showPass}>
-                {!password ? null : <>{!toggle ? <BiShow /> : <BiHide />}</>}
-              </span>
-            </div>
-            {title === "Change Password" ? (
+            ) : (
               <>
-                <div className="flex justify-start items-center border-b-2 px-1 py-3 border-b-primary">
+                {title !== "Change Password" ? (
                   <input
-                    className="bg-transparent w-full focus:outline-none"
-                    type={type1}
-                    name="new_password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
+                    className="bg-transparent border-b-2 mb-2 p-1 py-3 border-b-primary focus:outline-none"
+                    type={title !== "Change Email" ? "text" : "email"}
+                    name="name"
+                    value={
+                      title === "Change Name"
+                        ? newName
+                        : title === "Change Username"
+                        ? newUsername
+                        : Email
+                    }
+                    onChange={
+                      title === "Change Name"
+                        ? (e) => setNewName(e.target.value)
+                        : title === "Change Username"
+                        ? (e) => setNewUsername(e.target.value)
+                        : (e) => setNewEmail(e.target.value)
+                    }
                     placeholder={placeholder}
                   />
-                  <span
-                    className="cursor-pointer py-1 px-[2px]"
-                    onClick={showPass1}
-                  >
-                    {!newPassword ? null : (
-                      <>{!toggle1 ? <BiShow /> : <BiHide />}</>
-                    )}
-                  </span>
-                </div>
-                <span className="font-poppins">
-                  <PasswordStrengthMeter password={newPassword} />
-                </span>
-                <div className="flex justify-start items-center border-b-2 px-1 py-3 border-b-primary">
+                ) : null}
+                <div className="flex justify-start items-center border-b-2 p-1 py-3 border-b-primary">
                   <input
                     className="bg-transparent w-full focus:outline-none"
-                    type={type2}
-                    name="conf_new_password"
-                    value={confNewPassword}
-                    onChange={(e) => setConfNewPassword(e.target.value)}
-                    placeholder="Confirm new Password"
+                    type={type}
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="password"
                   />
                   <span
                     className="cursor-pointer py-1 px-[2px]"
-                    onClick={showPass2}
+                    onClick={showPass}
                   >
-                    {!confNewPassword ? null : (
-                      <>{!toggle2 ? <BiShow /> : <BiHide />}</>
+                    {!password ? null : (
+                      <>{!toggle ? <BiShow /> : <BiHide />}</>
                     )}
                   </span>
                 </div>
+                {title === "Change Password" ? (
+                  <>
+                    <div className="flex justify-start items-center border-b-2 px-1 py-3 border-b-primary">
+                      <input
+                        className="bg-transparent w-full focus:outline-none"
+                        type={type1}
+                        name="new_password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder={placeholder}
+                      />
+                      <span
+                        className="cursor-pointer py-1 px-[2px]"
+                        onClick={showPass1}
+                      >
+                        {!newPassword ? null : (
+                          <>{!toggle1 ? <BiShow /> : <BiHide />}</>
+                        )}
+                      </span>
+                    </div>
+                    <span className="font-poppins">
+                      <PasswordStrengthMeter password={newPassword} />
+                    </span>
+                    <div className="flex justify-start items-center border-b-2 px-1 py-3 border-b-primary">
+                      <input
+                        className="bg-transparent w-full focus:outline-none"
+                        type={type2}
+                        name="conf_new_password"
+                        value={confNewPassword}
+                        onChange={(e) => setConfNewPassword(e.target.value)}
+                        placeholder="Confirm new Password"
+                      />
+                      <span
+                        className="cursor-pointer py-1 px-[2px]"
+                        onClick={showPass2}
+                      >
+                        {!confNewPassword ? null : (
+                          <>{!toggle2 ? <BiShow /> : <BiHide />}</>
+                        )}
+                      </span>
+                    </div>
+                  </>
+                ) : null}
               </>
-            ) : null}
+            )}
 
             <div className="flex justify-between px-3 mt-8 mb-2">
               <input

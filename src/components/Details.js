@@ -36,18 +36,20 @@ const Details = ({ data }) => {
   const [toggle1, setToggle1] = useState(false);
   const [title, setTitle] = useState("");
   const [placeholder, setPlaceholder] = useState("");
+  const [about_value, setAbout_value] = useState("");
 
-  const ShowBox = ({ title, placeholder }) => {
+  const ShowBox = ({ title, placeholder, about_value }) => {
     setToggle1((prev) => !prev);
     setTitle(title);
     setPlaceholder(placeholder);
+    setAbout_value(about_value);
   };
 
   const closeBox = () => {
     setToggle1(false);
   };
 
-  const url = "http://localhost/mukuru047-backend/logout.php";
+  const url = "https://mukuru1.000webhostapp.com/logout.php";
 
   const Logout = () => {
     let fData = new FormData();
@@ -69,6 +71,36 @@ const Details = ({ data }) => {
   return (
     <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
       <div className="flex flex-col p-2 font-poppins w-[315px]">
+        <div
+          className={`flex justify-between items-center text-base p-1 py-2  border-b border-b-sky-900 border-opacity-25 gap-2`}
+        >
+          <div className="flex flex-col items-start w-full ">
+            <p className="text-base sm:text-sm text-[#888] font-poppins">
+              About
+            </p>
+            <input
+              className="pl-1 bg-transparent text-lg sm:text-sm font-poppins w-[100%] focus:outline-none"
+              readOnly={true}
+              type="text"
+              value={
+                data.user_about.length > 32
+                  ? data.user_about.slice(0, 32) + "..."
+                  : data.user_about
+              }
+            />
+          </div>
+          <span className="cursor-pointer">
+            <GrEdit
+              onClick={() =>
+                ShowBox({
+                  title: "Change About",
+                  placeholder: "About",
+                  about_value: data.user_about,
+                })
+              }
+            />
+          </span>
+        </div>
         <div className="flex justify-between items-center text-base p-1 py-2 border-b border-b-sky-900 border-opacity-25 gap-5">
           <div className="flex flex-col items-start w-full ">
             <p className="text-base sm:text-sm text-[#888] font-poppins">
@@ -164,6 +196,7 @@ const Details = ({ data }) => {
             closeBox={closeBox}
             title={title}
             placeholder={placeholder}
+            about_value={about_value}
           />
         ) : null}
       </div>

@@ -6,7 +6,7 @@ const TotalComments = ({ post_id }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = "http://localhost/mukuru047-backend/comments.php";
+    const url = "https://mukuru1.000webhostapp.com/comments.php";
 
     axios
       .get(url, { params: { post_id: post_id } })

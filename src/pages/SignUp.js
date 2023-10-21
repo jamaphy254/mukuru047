@@ -60,7 +60,9 @@ const Signup = () => {
   // Convert first letter to lowercase
   const Email = email.slice(0).toLowerCase();
 
-  const url = "http://localhost/mukuru047-backend/register.php";
+  const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+
+  const url = "https://mukuru1.000webhostapp.com/signup.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -71,6 +73,8 @@ const Signup = () => {
       setAlert("Username is required!");
     } else if (!email) {
       setAlert("Email is required!");
+    } else if (validRegex.test(email) === false) {
+      setAlert("invalid email address!");
     } else if (!password) {
       setAlert("Password is required!");
     } else if (password !== confirmPassword) {
@@ -88,8 +92,7 @@ const Signup = () => {
         .then((res) => {
           setAlert(res.data.alert);
           if (res.data.status === "200") {
-            navigate("/login");
-            console.log(Alert);
+            // navigate("/login");
           }
         })
         .catch((err) => alert(err));

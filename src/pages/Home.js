@@ -28,7 +28,7 @@ const Home = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "http://localhost/mukuru047-backend/posts.php";
+    const url = "https://mukuru1.000webhostapp.com/posts.php";
 
     axios
       .get(url)

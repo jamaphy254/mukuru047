@@ -6,7 +6,7 @@ import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import login from "../assets/IMG_2577.JPG";
 
 const Signup = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,7 +60,7 @@ const Signup = () => {
   // Convert first letter to lowercase
   const Email = email.slice(0).toLowerCase();
 
-  const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+  // const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
   const url = "https://mukuru1.000webhostapp.com/signup.php";
 
@@ -73,7 +73,7 @@ const Signup = () => {
       setAlert("Username is required!");
     } else if (!email) {
       setAlert("Email is required!");
-    } else if (validRegex.test(email) === false) {
+    } else if (!email) {
       setAlert("invalid email address!");
     } else if (!password) {
       setAlert("Password is required!");

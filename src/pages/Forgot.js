@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Reset from "../components/Reset";
@@ -29,7 +29,7 @@ const Forgot = () => {
 
   const url = "https://mukuru1.000webhostapp.com/forget.php";
 
-  const HandleSubmit = (e) => {
+  const HandleSubmit = useCallback((e) => {
     e.preventDefault();
 
     if (!name) {
@@ -58,7 +58,7 @@ const Forgot = () => {
 
       clearInputs();
     }
-  };
+  });
 
   const [verify, setVerify] = useState();
   useEffect(() => {

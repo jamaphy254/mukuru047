@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Set from "./Set";
@@ -41,7 +41,7 @@ const Reset = ({ name, show, back }) => {
 
   const url = "http://localhost/mukuru047-backend/forget.php";
 
-  const HandleSubmit = (e) => {
+  const HandleSubmit = useCallback((e) => {
     e.preventDefault();
     let fData = new FormData();
     fData.append("code", code);
@@ -60,7 +60,7 @@ const Reset = ({ name, show, back }) => {
       })
       .catch((err) => alert(err));
     clearInputs();
-  };
+  });
 
   useEffect(() => {
     const code = localStorage.getItem("code");

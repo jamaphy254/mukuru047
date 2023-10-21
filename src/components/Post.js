@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { BsChatDots } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
-import { SlOptionsVertical } from "react-icons/sl";
+// import { SlOptionsVertical } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import TotalLikes from "./TotalLikes";
 import TotalComments from "./TotalComments";
@@ -26,7 +26,7 @@ const Post = ({ item, user_id, admin }) => {
       .catch((err) => alert(err));
   };
 
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   // let row;
   // let prevOpenedRow;

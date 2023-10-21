@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiHide, BiShow } from "react-icons/bi";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import login from "../assets/IMG_2577.JPG";

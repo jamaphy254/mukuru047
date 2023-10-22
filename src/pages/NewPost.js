@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import ReactEmoji from "react-emoji";
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const NewPost = () => {
 
             <textarea
               className="w-[90%] h-52 p-3 border rounded focus:outline-none font-poppins"
-              value={post_text}
+              value={ReactEmoji.emojify(post_text)}
               onChange={(e) => setPost_text(e.target.value)}
               name="post_text"
               cols="30"

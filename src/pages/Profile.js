@@ -109,6 +109,11 @@ const Profile = () => {
         ) : (
           <>
             <div className="flex flex-col justify-center items-center 2xl:items-start 2xl:pl-16 pt-4">
+              {data.admn === "Admin" ? (
+                <p className="text-xs font-poppins text-purple-500">
+                  Platform Admin
+                </p>
+              ) : null}
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"

@@ -145,7 +145,7 @@ export const People = () => {
                           </p>
                         </div>
                         <div className="flex flex-col justify-center items-center">
-                          {item.admin === "Admin" ? (
+                          {item.admn === "Admin" ? (
                             <p className="text-xs font-poppins text-purple-500">
                               admin
                             </p>

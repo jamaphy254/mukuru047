@@ -15,5 +15,13 @@ export const NetStatus = () => {
       window.removeEventListener("offline", changeStatus);
     };
   }, []);
-  return status ? "online" : "offline";
+  return (
+    <div>
+      {status ? (
+        <p className="text-xs font-poppins text-green">online</p>
+      ) : (
+        <p className="text-xs font-poppins text-danger">offline</p>
+      )}
+    </div>
+  );
 };

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { NetStatus } from "../components/NetStatus";
 
 export const People = () => {
   const navigate = useNavigate();
@@ -150,7 +151,8 @@ export const People = () => {
                               admin
                             </p>
                           ) : null}
-                          {item.user_login_status === "Login" ? (
+                          <NetStatus />
+                          {/* {item.user_login_status === "Login" ? (
                             <p className="text-xs font-poppins text-green">
                               online
                             </p>
@@ -158,7 +160,7 @@ export const People = () => {
                             <p className="text-xs font-poppins text-danger">
                               offline
                             </p>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>

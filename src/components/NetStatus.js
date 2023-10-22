@@ -17,7 +17,7 @@ export const NetStatus = () => {
   }, []);
   return (
     <div>
-      {!status ? (
+      {status ? (
         <p className="text-xs font-poppins text-green">online</p>
       ) : (
         <p className="text-xs font-poppins text-danger">offline</p>

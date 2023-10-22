@@ -63,6 +63,9 @@ const UserDetails = () => {
                 <FaUserCircle className=" h-[180px] w-[180px] 2xl:w-[220px] 2xl:h-[220px] bg-[#999] 2xl:ml-12 rounded-full text-[#777]" />
               )}
             </div>
+            {data.admn === "Admin" ? (
+              <p className="text-xs font-poppins text-purple-500">Admin</p>
+            ) : null}
             <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
               <div className="flex flex-col p-2 font-poppins w-[315px] gap-2">
                 <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">

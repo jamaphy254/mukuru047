@@ -64,7 +64,9 @@ const UserDetails = () => {
               )}
             </div>
             {data.admn === "Admin" ? (
-              <p className="text-xs font-poppins text-purple-500">Admin</p>
+              <p className="text-lg text-center font-poppins text-purple-500">
+                Admin
+              </p>
             ) : null}
             <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
               <div className="flex flex-col p-2 font-poppins w-[315px] gap-2">

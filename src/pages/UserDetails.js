@@ -64,7 +64,7 @@ const UserDetails = () => {
               )}
             </div>
             {data.admn === "Admin" ? (
-              <p className="text-lg text-center font-poppins text-purple-500">
+              <p className="text-lg text-center font-poppins mt-5 text-purple-500">
                 Admin
               </p>
             ) : null}

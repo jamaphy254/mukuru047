@@ -94,7 +94,7 @@ const Post = ({ item, user_id, admin }) => {
           </p>
           <p className="font-poppins text-xs text-[#888]">{item.created_on}</p>
         </div>
-        {item.user_id === user_id || admin === "Admin" ? (
+        {/* {item.user_id === user_id || admin === "Admin" ? (
           <SlOptionsVertical
             onClick={() => setToggle((prev) => !prev)}
             className="absolute right-6  mr-2 text-2xl cursor-pointer"
@@ -109,7 +109,7 @@ const Post = ({ item, user_id, admin }) => {
               Delete
             </p>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
       <div className="flex flex-col items-center">
         <p

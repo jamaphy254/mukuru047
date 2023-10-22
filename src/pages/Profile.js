@@ -110,7 +110,7 @@ const Profile = () => {
           <>
             <div className="flex flex-col justify-center items-center 2xl:items-start 2xl:pl-16 pt-4">
               {data.admn === "Admin" ? (
-                <p className="text-xs font-poppins text-purple-500">
+                <p className="text-lg font-poppins mb-5 text-purple-500">
                   Platform Admin
                 </p>
               ) : null}

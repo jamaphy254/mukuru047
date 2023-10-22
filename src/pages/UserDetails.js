@@ -101,7 +101,7 @@ const UserDetails = () => {
                     className="px-1 bg-transparent text-lg sm:text-sm font-poppins w-[100%] focus:outline-none"
                     readOnly={true}
                     type="text"
-                    value={data.user}
+                    value={data.user_about}
                   />
                 </div>
 

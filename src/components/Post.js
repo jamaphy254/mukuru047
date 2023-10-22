@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { BsChatDots } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
-import { SlOptionsVertical } from "react-icons/sl";
+// import { SlOptionsVertical } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import TotalLikes from "./TotalLikes";
 import TotalComments from "./TotalComments";
@@ -26,7 +26,7 @@ const Post = ({ item, user_id, admin }) => {
       .catch((err) => alert(err));
   };
 
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   // let row;
   // let prevOpenedRow;
@@ -39,21 +39,21 @@ const Post = ({ item, user_id, admin }) => {
   //   prevOpenedRow = row[index];
   // };
 
-  const url1 = "https://mukuru1.000webhostapp.com/posts.php";
+  // const url1 = "https://mukuru1.000webhostapp.com/posts.php";
 
-  const DeletePost = (post_id) => {
-    let fData = new FormData();
-    fData.append("post_id", post_id);
-    fData.append("delete", "delete");
+  // const DeletePost = (post_id) => {
+  //   let fData = new FormData();
+  //   fData.append("post_id", post_id);
+  //   fData.append("delete", "delete");
 
-    axios
-      .post(url1, fData)
-      .then((res) => {
-        if (res.data.status === "200") {
-        }
-      })
-      .catch((err) => alert(err));
-  };
+  //   axios
+  //     .post(url1, fData)
+  //     .then((res) => {
+  //       if (res.data.status === "200") {
+  //       }
+  //     })
+  //     .catch((err) => alert(err));
+  // };
 
   return (
     <div className="mb-14 lg:mb-20 bg-white w-full rounded-md">
@@ -94,7 +94,7 @@ const Post = ({ item, user_id, admin }) => {
           </p>
           <p className="font-poppins text-xs text-[#888]">{item.created_on}</p>
         </div>
-        {item.user_id === user_id || admin === "Admin" ? (
+        {/* {item.user_id === user_id || admin === "Admin" ? (
           <SlOptionsVertical
             onClick={() => setToggle((prev) => !prev)}
             className="absolute right-6  mr-2 text-2xl cursor-pointer"
@@ -109,7 +109,7 @@ const Post = ({ item, user_id, admin }) => {
               Delete
             </p>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
       <div className="flex flex-col items-center">
         <p

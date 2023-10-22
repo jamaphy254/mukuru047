@@ -151,7 +151,7 @@ export const People = () => {
                               admin
                             </p>
                           ) : null}
-                          <NetStatus />
+                          <NetStatus item={item} />
                           {/* {item.user_login_status === "Login" ? (
                             <p className="text-xs font-poppins text-green">
                               online

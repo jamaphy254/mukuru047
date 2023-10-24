@@ -15,8 +15,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route exact path="/" element={<Splash />} /> */}
-        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/sign_up" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<Forgot />} />

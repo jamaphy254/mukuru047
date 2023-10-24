@@ -51,7 +51,7 @@ const NewPost = () => {
         }
       })
       .catch((err) => alert(err));
-    navigate("/home");
+    navigate("/");
   };
   return (
     <>

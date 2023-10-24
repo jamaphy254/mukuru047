@@ -111,7 +111,7 @@ const UserDetails = () => {
                       className="text-base p-2 font-poppins font-medium"
                       type="submit"
                       value="Back"
-                      onClick={() => navigate("/home")}
+                      onClick={() => navigate("/")}
                     />
                   </div>
                 </div>

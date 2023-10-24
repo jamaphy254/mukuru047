@@ -12,7 +12,7 @@ export const NavBar = () => {
   return (
     <nav className=" flex pl-3 justify-start fixed left-0 top-0 w-full items-center gap-3 bg-primary h-[50px] md:h-14 z-10">
       <IoIosArrowBack
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/")}
         className="text-2xl cursor-pointer"
       />
       <h4 className="text-xl font-poppins text-secondary">
@@ -81,7 +81,7 @@ const Header = () => {
           </CustomLink>
         </li>
         <li className="text-xl font-semibold md:text-2xl text-secondary font-poppins">
-          <CustomLink to="/home">
+          <CustomLink to="/">
             Home
             {/* <BiHomeAlt2 className="text-2xl" /> */}
           </CustomLink>

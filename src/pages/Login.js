@@ -63,7 +63,7 @@ const Login = () => {
                 admin: res.data.admin,
               })
             );
-            navigate("/");
+            navigate("/home");
           }
         })
         .catch((err) => alert(err));

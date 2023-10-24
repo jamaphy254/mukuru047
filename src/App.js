@@ -8,7 +8,6 @@ import NewPost from "./pages/NewPost";
 import Comments from "./pages/Comments";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
-import Splash from "./pages/Splash";
 import UserDetails from "./pages/UserDetails";
 import Forgot from "./pages/Forgot";
 

@@ -90,22 +90,24 @@ const Home = () => {
         </div>
         <div className="border-b mt-4 mb-7" />
         <div className="px-4">
-          {data.map((item, index) => {
-            return (
-              <div key={index}>
-                {loading ? (
-                  <Loading />
-                ) : (
-                  <Post
-                    admin={admin}
-                    item={item}
-                    user_id={user_id}
-                    loading={loading}
-                  />
-                )}
-              </div>
-            );
-          })}
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {data.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <Post
+                      admin={admin}
+                      item={item}
+                      user_id={user_id}
+                      loading={loading}
+                    />
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
       </div>
       {/* </>

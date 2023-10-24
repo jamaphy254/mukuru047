@@ -59,6 +59,21 @@ const Home = () => {
             <Skeleton height={30} width={90} />
           </div>
         </div>
+        <div className="mb-14 px-3 pb-3 lg:mb-20 bg-white w-full rounded-md">
+          <div className="flex justify-start items-center gap-2 pt-2 mb-2 lg:px-6">
+            <Skeleton height={40} width={40} circle />
+            <Skeleton height={10} width={150} count={2} />
+          </div>
+          <Skeleton />
+          <Skeleton height={200} />
+          <div className="flex justify-between border-b">
+            <Skeleton width={25} />
+            <Skeleton width={25} />
+          </div>
+          <div className="flex justify-center items-center">
+            <Skeleton height={30} width={90} />
+          </div>
+        </div>
       </>
     );
   };

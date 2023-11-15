@@ -83,7 +83,7 @@ const Details = ({ data }) => {
               readOnly={true}
               type="text"
               cols="30"
-              rows="10"
+              rows="5"
               value={
                 data.user_about.length > 50
                   ? data.user_about.slice(0, 50) + "..."

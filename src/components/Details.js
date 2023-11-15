@@ -71,39 +71,37 @@ const Details = ({ data }) => {
   return (
     <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
       <div className="flex flex-col p-2 font-poppins w-[315px]">
-        <div className={`border-b border-b-sky-900 border-opacity-25`}>
-          <div className="flex flex-col items-start w-full ">
-            <div
-              className={`flex justify-between items-center text-base p-1 py-2 w-full gap-2`}
-            >
-              <p className="text-base sm:text-sm text-[#888] font-poppins">
-                About
-              </p>
-              <span className="cursor-pointer">
-                <GrEdit
-                  onClick={() =>
-                    ShowBox({
-                      title: "Change About",
-                      placeholder: "About",
-                      about_value: data.user_about,
-                    })
-                  }
-                />
-              </span>
-            </div>
-            <textarea
-              className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-10 focus:outline-none"
-              readOnly={true}
-              type="text"
-              cols="10"
-              rows="2"
-              value={
-                data.user_about.length > 1000
-                  ? data.user_about.slice(0, 1000) + "..."
-                  : data.user_about
-              }
-            />
+        <div className="flex flex-col items-start w-full border-b border-b-sky-900 border-opacity-25">
+          <div
+            className={`flex justify-between items-center text-base p-1 py-2 w-full gap-2`}
+          >
+            <p className="text-base sm:text-sm text-[#888] font-poppins">
+              About
+            </p>
+            <span className="cursor-pointer">
+              <GrEdit
+                onClick={() =>
+                  ShowBox({
+                    title: "Change About",
+                    placeholder: "About",
+                    about_value: data.user_about,
+                  })
+                }
+              />
+            </span>
           </div>
+          <textarea
+            className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-10 focus:outline-none"
+            readOnly={true}
+            type="text"
+            cols="10"
+            rows="2"
+            value={
+              data.user_about.length > 1000
+                ? data.user_about.slice(0, 1000) + "..."
+                : data.user_about
+            }
+          />
         </div>
         <div className="flex justify-between items-center text-base p-1 py-2 border-b border-b-sky-900 border-opacity-25 gap-5">
           <div className="flex flex-col items-start w-full ">

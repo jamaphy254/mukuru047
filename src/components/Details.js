@@ -71,9 +71,7 @@ const Details = ({ data }) => {
   return (
     <div className="flex flex-col items-center 2xl:items-start p-2 2xl:pl-16 space-y-1 mt-3">
       <div className="flex flex-col p-2 font-poppins w-[315px]">
-        <div
-          className={`p-1 py-2  border-b border-b-sky-900 border-opacity-25`}
-        >
+        <div className={`border-b border-b-sky-900 border-opacity-25`}>
           <div className="flex flex-col items-start w-full ">
             <div
               className={`flex justify-between items-center text-base p-1 py-2 w-full gap-2`}

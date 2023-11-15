@@ -76,7 +76,7 @@ const Details = ({ data }) => {
         > */}
         <div className="flex flex-col items-start w-full ">
           <div
-            className={`flex justify-between items-center text-base p-1 py-2  border-b border-b-sky-900 border-opacity-25 gap-2`}
+            className={`flex justify-between items-center text-base p-1 py-2 w-full border-b border-b-sky-900 border-opacity-25 gap-2`}
           >
             <p className="text-base sm:text-sm text-[#888] font-poppins">
               About

@@ -83,11 +83,11 @@ const Profile = () => {
         <div className="flex justify-center items-center gap-2 pt-2 mb-2 lg:px-6">
           <Skeleton height={180} width={180} circle />
         </div>
-        <div className="flex justify-around my-11">
+        <div className="flex justify-around my-10">
           <Skeleton height={60} width={120} />
           <Skeleton height={60} width={120} />
         </div>
-        <div className="flex flex-col items-center gap-3 my-5">
+        <div className="flex flex-col items-center gap-3 my-3">
           <Skeleton height={60} width={320} count={4} />
         </div>
       </>

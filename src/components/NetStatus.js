@@ -18,7 +18,7 @@ export const NetStatus = ({ item }) => {
   return (
     <div>
       {status ? (
-        item.user_login_status === "Login" && status ? (
+        item.user_login_status === "Login" ? (
           <p className="text-xs font-poppins text-green">online</p>
         ) : (
           <p className="text-xs font-poppins text-danger">offline</p>

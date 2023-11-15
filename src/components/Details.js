@@ -79,12 +79,12 @@ const Details = ({ data }) => {
               About
             </p>
             <input
-              className="pl-1 bg-transparent text-sm font-poppins w-[100%] focus:outline-none"
+              className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] focus:outline-none"
               readOnly={true}
               type="text"
               value={
-                data.user_about.length > 32
-                  ? data.user_about.slice(0, 32) + "..."
+                data.user_about.length > 50
+                  ? data.user_about.slice(0, 50) + "..."
                   : data.user_about
               }
             />

@@ -97,11 +97,17 @@ const UserDetails = () => {
                   <p className="text-base sm:text-sm text-[#888] font-poppins">
                     About
                   </p>
-                  <input
-                    className="px-1 bg-transparent text-lg sm:text-sm font-poppins w-[100%] focus:outline-none"
+                  <textarea
+                    className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-20 focus:outline-none"
                     readOnly={true}
                     type="text"
-                    value={data.user_about}
+                    cols="30"
+                    rows="10"
+                    value={
+                      data.user_about.length > 1000
+                        ? data.user_about.slice(0, 1000) + "..."
+                        : data.user_about
+                    }
                   />
                 </div>
 

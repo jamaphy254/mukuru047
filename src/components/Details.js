@@ -91,7 +91,7 @@ const Details = ({ data }) => {
             </span>
           </div>
           <textarea
-            className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-24 focus:outline-none"
+            className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-20 focus:outline-none"
             readOnly={true}
             type="text"
             cols="30"

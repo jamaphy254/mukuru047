@@ -98,7 +98,7 @@ const Details = ({ data }) => {
               readOnly={true}
               type="text"
               cols="30"
-              rows="5"
+              rows="2"
               value={
                 data.user_about.length > 1000
                   ? data.user_about.slice(0, 1000) + "..."

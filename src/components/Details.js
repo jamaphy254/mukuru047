@@ -78,6 +78,17 @@ const Details = ({ data }) => {
             <p className="text-base sm:text-sm text-[#888] font-poppins">
               About
             </p>
+            <span className="cursor-pointer">
+              <GrEdit
+                onClick={() =>
+                  ShowBox({
+                    title: "Change About",
+                    placeholder: "About",
+                    about_value: data.user_about,
+                  })
+                }
+              />
+            </span>
             <textarea
               className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] h-28 focus:outline-none"
               readOnly={true}
@@ -85,23 +96,12 @@ const Details = ({ data }) => {
               cols="30"
               rows="5"
               value={
-                data.user_about.length > 50
-                  ? data.user_about.slice(0, 50) + "..."
+                data.user_about.length > 1000
+                  ? data.user_about.slice(0, 1000) + "..."
                   : data.user_about
               }
             />
           </div>
-          <span className="cursor-pointer">
-            <GrEdit
-              onClick={() =>
-                ShowBox({
-                  title: "Change About",
-                  placeholder: "About",
-                  about_value: data.user_about,
-                })
-              }
-            />
-          </span>
         </div>
         <div className="flex justify-between items-center text-base p-1 py-2 border-b border-b-sky-900 border-opacity-25 gap-5">
           <div className="flex flex-col items-start w-full ">

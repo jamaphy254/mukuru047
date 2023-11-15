@@ -142,7 +142,9 @@ export const People = () => {
                             {item.user_name}
                           </p>
                           <p className="font-poppins text-sm font-medium">
-                            {item.user_about}
+                            {item.user_about.length > 32
+                              ? item.user_about.slice(0, 32) + "..."
+                              : item.user_about}
                           </p>
                         </div>
                         <div className="flex flex-col justify-center items-center">

@@ -79,7 +79,7 @@ const Details = ({ data }) => {
               About
             </p>
             <input
-              className="pl-1 bg-transparent text-lg sm:text-sm font-poppins w-[100%] focus:outline-none"
+              className="pl-1 bg-transparent text-sm font-poppins w-[100%] focus:outline-none"
               readOnly={true}
               type="text"
               value={

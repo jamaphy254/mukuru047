@@ -95,7 +95,7 @@ const Details = ({ data }) => {
               className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-28 focus:outline-none"
               readOnly={true}
               type="text"
-              cols="30"
+              cols="10"
               rows="2"
               value={
                 data.user_about.length > 1000

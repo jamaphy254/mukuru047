@@ -79,7 +79,7 @@ const Details = ({ data }) => {
               About
             </p>
             <textarea
-              className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] h-44 focus:outline-none"
+              className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] h-28 focus:outline-none"
               readOnly={true}
               type="text"
               cols="30"

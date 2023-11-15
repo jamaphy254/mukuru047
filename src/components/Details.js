@@ -91,11 +91,11 @@ const Details = ({ data }) => {
             </span>
           </div>
           <textarea
-            className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-10 focus:outline-none"
+            className="pl-1 bg-transparent text-sm font-poppins w-[100%] h-24 focus:outline-none"
             readOnly={true}
             type="text"
-            cols="10"
-            rows="2"
+            cols="30"
+            rows="10"
             value={
               data.user_about.length > 1000
                 ? data.user_about.slice(0, 1000) + "..."

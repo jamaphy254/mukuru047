@@ -78,10 +78,12 @@ const Details = ({ data }) => {
             <p className="text-base sm:text-sm text-[#888] font-poppins">
               About
             </p>
-            <input
-              className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] focus:outline-none"
+            <textarea
+              className="pl-1 bg-transparent text-sm sm:text-sm font-poppins w-[100%] h-44 focus:outline-none"
               readOnly={true}
               type="text"
+              cols="30"
+              rows="10"
               value={
                 data.user_about.length > 50
                   ? data.user_about.slice(0, 50) + "..."

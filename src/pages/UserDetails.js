@@ -21,7 +21,7 @@ const UserDetails = () => {
       navigate("/login");
     }
 
-    const url = "http://localhost/back-end/profile.php";
+    const url = "https://mukuru1.000webhostapp.com/profile.php";
 
     axios.get(url, { params: { user_id: state } }).then((res) => {
       setData(res.data[0]);
@@ -56,7 +56,7 @@ const UserDetails = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`http://localhost/back-end/${data.user_profile}`}
+                  src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
                   alt="profile"
                 />
               ) : (

@@ -55,8 +55,8 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const url = "http://localhost/back-end/profile.php";
-    const url1 = "http://localhost/back-end/notifications.php";
+    const url = "https://mukuru1.000webhostapp.com/profile.php";
+    const url1 = "https://mukuru1.000webhostapp.com/notifications.php";
 
     Promise.all([
       axios.get(url, { params: { user_id: user_id } }),
@@ -126,7 +126,7 @@ const Header = () => {
         ) : data.user_profile ? (
           <img
             className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-            src={`http://localhost/back-end/${data.user_profile}`}
+            src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
             alt="profile"
           />
         ) : (

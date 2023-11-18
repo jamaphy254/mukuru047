@@ -27,7 +27,7 @@ export const People = () => {
       navigate("/login");
     }
 
-    const url = "http://localhost/back-end/users.php";
+    const url = "https://mukuru1.000webhostapp.com/users.php";
 
     axios
       .get(url, { params: { user_id: user_id } })
@@ -130,7 +130,7 @@ export const People = () => {
                       {item.user_profile ? (
                         <img
                           className="w-[45px] h-[45px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                          src={`http://localhost/back-end/${item.user_profile}`}
+                          src={`https://mukuru1.000webhostapp.com/${item.user_profile}`}
                           alt="profile"
                         />
                       ) : (

@@ -82,7 +82,7 @@ const ChangeUserData = ({
     }
   };
 
-  const url = "https://mukuru1.000webhostapp.com/profile.php";
+  const url = "http://localhost/back-end/profile.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();

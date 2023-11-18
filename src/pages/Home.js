@@ -14,10 +14,14 @@ const Home = () => {
   const { user } = useSelector((state) => state.user);
 
   let user_id;
+  let user_name;
+  let user_profile;
   let admin;
 
   if (user.length) {
     user_id = user[0].user_id;
+    user_name = user[0].username;
+    user_profile = user[0].profile;
     admin = user[0].admin;
   }
 
@@ -28,7 +32,7 @@ const Home = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "https://mukuru1.000webhostapp.com/posts.php";
+    const url = "http://localhost/back-end/posts.php";
 
     axios
       .get(url)
@@ -116,6 +120,8 @@ const Home = () => {
                       admin={admin}
                       item={item}
                       user_id={user_id}
+                      user_name={user_name}
+                      user_profile={user_profile}
                       loading={loading}
                     />
                   </div>

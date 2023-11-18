@@ -49,7 +49,7 @@ const Details = ({ data }) => {
     setToggle1(false);
   };
 
-  const url = "https://mukuru1.000webhostapp.com/logout.php";
+  const url = "http://localhost/back-end/logout.php";
 
   const Logout = () => {
     let fData = new FormData();

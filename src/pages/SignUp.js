@@ -62,7 +62,7 @@ const Signup = () => {
 
   // const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
-  const url = "https://mukuru1.000webhostapp.com/signup.php";
+  const url = "http://localhost/back-end/signup.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-import { AiOutlineSearch } from "react-icons/ai";
+import {
+  AiOutlineAppstoreAdd,
+  AiOutlineNotification,
+  AiOutlineSearch,
+} from "react-icons/ai";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { IoIosArrowBack } from "react-icons/io";
+import { BiHomeAlt2 } from "react-icons/bi";
+import { BsChatDots } from "react-icons/bs";
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -34,6 +40,7 @@ const Header = () => {
   }
 
   const [data, setData] = useState([]);
+  const [notification, setNotification] = useState([]);
   const [loading, setLoading] = useState(true);
 
   function CustomLink({ to, children, ...props }) {
@@ -48,13 +55,18 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const url = "https://mukuru1.000webhostapp.com/profile.php";
+    const url = "http://localhost/back-end/profile.php";
+    const url1 = "http://localhost/back-end/notifications.php";
 
-    axios.get(url, { params: { user_id: user_id } }).then((res) => {
-      setData(res.data[0]);
+    Promise.all([
+      axios.get(url, { params: { user_id: user_id } }),
+      axios.get(url1, { params: { count: user_id } }),
+    ]).then((res) => {
+      setData(res[0].data[0]);
+      setNotification(res[1].data);
       setLoading(false);
     });
-  });
+  }, [user_id, data]);
 
   const Loading = () => (
     <>
@@ -73,23 +85,35 @@ const Header = () => {
       <div className="md:flex mr-3 absolute top-0 md:top-[6px] right-0 md:right-24 my-2 text-white text-lg md:text-xl lg:text-2xl font-bold font-poppins cursor-pointer">
         <AiOutlineSearch className="text-2xl" />
       </div>
-      <ul className="flex gap-[45px] md:gap-3 md:ml-6 md:space-x-5 lg:space-x-10 mr-16 md:mr-0 pb-2 md:pb-0">
+      <ul className="flex gap-[55px] md:gap-3 md:ml-6 md:space-x-5 lg:space-x-10 mr-24 md:mr-0 pb-2 md:pb-0">
         <li className="2xl:hidden text-xl font-semibold md:text-2xl text-secondary font-poppins">
           <CustomLink to="/new_post">
-            Post
-            {/* <AiOutlineAppstoreAdd className="text-2xl" /> */}
+            {/* Post */}
+            <AiOutlineAppstoreAdd className="text-2xl" />
           </CustomLink>
         </li>
         <li className="text-xl font-semibold md:text-2xl text-secondary font-poppins">
           <CustomLink to="/">
-            Home
-            {/* <BiHomeAlt2 className="text-2xl" /> */}
+            {/* Home */}
+            <BiHomeAlt2 className="text-2xl" />
           </CustomLink>
         </li>
         <li className="text-xl font-semibold  md:text-2xl text-secondary font-poppins">
           <CustomLink to="/people">
-            People
-            {/* <BsChatDots className="text-2xl" /> */}
+            {/* People */}
+            <BsChatDots className="text-2xl" />
+          </CustomLink>
+        </li>
+        <li className="text-xl font-semibold  md:text-2xl text-secondary font-poppins">
+          <CustomLink to="/notifications">
+            <div className="absolute">
+              <AiOutlineNotification className="text-2xl" />
+              {!notification.length ? null : (
+                <p className="text-sm font-poppins bg-danger text-white rounded-full text-center w-[20px] h-[20px] relative -top-9 -right-2 ">
+                  {notification.length > 9 ? "9+" : notification.length}
+                </p>
+              )}
+            </div>
           </CustomLink>
         </li>
       </ul>
@@ -102,7 +126,7 @@ const Header = () => {
         ) : data.user_profile ? (
           <img
             className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-            src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
+            src={`http://localhost/back-end/${data.user_profile}`}
             alt="profile"
           />
         ) : (

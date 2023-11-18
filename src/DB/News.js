@@ -1,32 +1,30 @@
 import dp1 from "../assets/dp1.jpg";
 import dp2 from "../assets/dp2.jpg";
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-import pasp from "../assets/pasp.jpg";
 
 export const data1 = [
   {
-    caption:
-      "MUKURU047 is a platform aiming at bringing people together and sharing business and political ideas. It also looks for job opportunities for the people in the community.",
     image: dp1,
-    media: img1,
-    name: "John Doe",
+    text: "Elitestar liked your post.",
+    time: "July 7 2023 7:20 Pm",
   },
   {
-    caption:
-      "MUKURU047 is a platform aiming at bringing people together and sharing business and political ideas. It also looks for job opportunities for the people in the community.",
     image: dp2,
-    media: img2,
-    name: "Elitestar",
+    text: "Afro254 commented on your post.",
+    time: "July 7 2023 7:20 Pm",
   },
   {
-    image: pasp,
-    media: img3,
-    name: "Jamaphy",
+    image: null,
+    text: "obinah ke liked your post.",
+    time: "July 7 2023 7:20 Pm",
   },
   {
-    caption: "MUKURU047 .",
-    name: "JamTech",
+    image: dp2,
+    text: "Jamaphy added new post.",
+    time: "July 7 2023 7:20 Pm",
+  },
+  {
+    image: dp1,
+    text: "Elitestar liked your post.",
+    time: "July 7 2023 7:20 Pm",
   },
 ];

@@ -33,7 +33,7 @@ const Login = () => {
   // Convert first letter to uppercase and rest to lowercase
   const Email = email.charAt(0).toUpperCase() + email.slice(1).toLowerCase();
 
-  const url = "https://mukuru1.000webhostapp.com/login.php";
+  const url = "http://localhost/back-end/login.php";
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ const Login = () => {
         .post(url, fData)
         .then((res) => {
           setAlert(res.data.alert);
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data.status === "200") {
             dispatch(
               addUser({

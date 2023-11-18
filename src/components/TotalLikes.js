@@ -9,7 +9,7 @@ const TotalLikes = ({ post_id, user_id, ADDLike }) => {
   let like_user_id;
 
   useEffect(() => {
-    const url = "https://mukuru1.000webhostapp.com/likes.php";
+    const url = "http://localhost/back-end/likes.php";
 
     axios
       .get(url, { params: { post_id: post_id } })

@@ -3,8 +3,8 @@ nav a {
   
 }
 nav ul a.active {
-  border-bottom-color: #0BCE83;
-  border-bottom-width: 3px;
+  color: #0BCE83;
+  /* border-bottom-width: 3px; */
   /* background: #000; */
 }
 nav a:hover {

@@ -10,6 +10,7 @@ import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import UserDetails from "./pages/UserDetails";
 import Forgot from "./pages/Forgot";
+import Notifications from "./pages/Notifications";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/new_post" element={<NewPost />} />
         <Route path="/people" element={<People />} />
+        <Route path="/notifications" element={<Notifications />} />
         {/* <Route path="/chats" element={<Chats />} /> */}
         <Route path="/comments" element={<Comments />} />
         {/* <Route path="/chat_room" element={<ChatRoom />} /> */}

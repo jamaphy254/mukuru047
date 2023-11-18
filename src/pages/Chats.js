@@ -27,7 +27,7 @@ export const People = () => {
       navigate("/login");
     }
 
-    const url = "https://mukuru1.000webhostapp.com/users.php";
+    const url = "http://localhost/back-end/users.php";
 
     axios
       .get(url, { params: { user_id: user_id } })
@@ -42,54 +42,54 @@ export const People = () => {
 
   const Loading = () => {
     return (
-      <div className="pt-7 px-5">
-        <div className="flex justify-start items-center gap-2 mb-5 lg:px-6">
+      <div className="pt-3 px-5">
+        <div className="flex justify-start items-center gap-3 mb-3 lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
-        <div className="flex justify-start items-center gap-2 mb-5  lg:px-6">
+        <div className="flex justify-start items-center gap-3 mb-3  lg:px-6">
           <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
-          <Skeleton height={15} width={250} count={2} />
+          <Skeleton height={15} width={270} count={2} />
         </div>
       </div>
     );
@@ -125,18 +125,18 @@ export const People = () => {
                       onClick={() =>
                         navigate("/user_details", { state: item.user_id })
                       }
-                      className="flex justify-start items-center gap-3 m-4 p-2"
+                      className="flex justify-start items-center gap-2 px-4 my-3"
                     >
                       {item.user_profile ? (
                         <img
                           className="w-[45px] h-[45px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                          src={`https://mukuru1.000webhostapp.com/${item.user_profile}`}
+                          src={`http://localhost/back-end/${item.user_profile}`}
                           alt="profile"
                         />
                       ) : (
                         <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
                       )}
-                      <div className=" flex justify-start items-center cursor-pointer w-[82%]">
+                      <div className=" flex justify-between items-center cursor-pointer px-1 w-[85%]">
                         <div className="w-[80%]">
                           <p className="font-poppins text-base font-semibold">
                             {item.user_name}
@@ -154,15 +154,6 @@ export const People = () => {
                             </p>
                           ) : null}
                           <NetStatus item={item} />
-                          {/* {item.user_login_status === "Login" ? (
-                            <p className="text-xs font-poppins text-green">
-                              online
-                            </p>
-                          ) : (
-                            <p className="text-xs font-poppins text-danger">
-                              offline
-                            </p>
-                          )} */}
                         </div>
                       </div>
                     </div>

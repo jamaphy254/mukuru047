@@ -18,10 +18,14 @@ const Comments = () => {
   const { user } = useSelector((state) => state.user);
 
   let user_id;
+  let user_name;
+  let user_profile;
   let post_id;
 
   if (user.length && state) {
     user_id = user[0].user_id;
+    user_name = user[0].username;
+    user_profile = user[0].profile;
     post_id = state.post_id;
   }
 
@@ -30,13 +34,18 @@ const Comments = () => {
   const [like, setLike] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // const onEmojiClick = (e, emojiObject) => {
+  //   setComment(e.target.value)
+  //   setComment((prevInput) => prevInput + emojiObject.emoji);
+  // };
+
   let like_user_id;
 
   // Convert first letter to uppercase and rest to lowercase
   const Comment =
     comment.charAt(0).toUpperCase() + comment.slice(1).toLowerCase();
 
-  const url1 = "https://mukuru1.000webhostapp.com/comments.php";
+  const url1 = "http://localhost/back-end/comments.php";
 
   const AddComment = (e) => {
     e.preventDefault();
@@ -45,6 +54,12 @@ const Comments = () => {
     fData.append("post_id", state.post_id);
     fData.append("user_id", user_id);
     fData.append("comment_text", Comment);
+    fData.append("user_name", user_name);
+    fData.append("user_profile", user_profile);
+    fData.append("recipient_user_id", state.user_id);
+    fData.append("type", "Comment");
+    // fData.append("created_on", moment().format());
+    fData.append("isRead", false);
 
     axios
       .post(url1, fData)
@@ -56,12 +71,18 @@ const Comments = () => {
     setComment("");
   };
 
-  const url = "https://mukuru1.000webhostapp.com/likes.php";
+  const url = "http://localhost/back-end/likes.php";
 
   const ADDLike = () => {
     let fData = new FormData();
     fData.append("post_id", post_id);
     fData.append("user_id", user_id);
+    fData.append("user_name", user_name);
+    fData.append("user_profile", user_profile);
+    fData.append("recipient_user_id", state.user_id);
+    fData.append("type", "Like");
+    // fData.append("created_on", moment().format());
+    fData.append("isRead", false);
 
     axios
       .post(url, fData)
@@ -77,8 +98,8 @@ const Comments = () => {
       navigate("/login");
     }
 
-    const url = "https://mukuru1.000webhostapp.com/comments.php";
-    const url1 = "https://mukuru1.000webhostapp.com/likes.php";
+    const url = "http://localhost/back-end/comments.php";
+    const url1 = "http://localhost/back-end/likes.php";
 
     Promise.all([
       axios.get(url, { params: { post_id: post_id } }),
@@ -135,7 +156,7 @@ const Comments = () => {
                   {state.user_profile ? (
                     <img
                       className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                      src={`https://mukuru1.000webhostapp.com/${state.user_profile}`}
+                      src={`http://localhost/back-end/${state.user_profile}`}
                       alt="profile"
                     />
                   ) : (
@@ -151,7 +172,7 @@ const Comments = () => {
                       ) : null}
                     </p>
                     <p className="font-poppins text-xs text-[#888]">
-                      {state.created_on}
+                      {state.post_created_on}
                     </p>
                   </div>
                 </div>
@@ -162,7 +183,7 @@ const Comments = () => {
                   {state.post_media ? (
                     <img
                       className="w-[95%] 2xl:h-[490px] rounded-md"
-                      src={`https://mukuru1.000webhostapp.com/${state.post_media}`}
+                      src={`http://localhost/back-end/${state.post_media}`}
                       alt="profile"
                     />
                   ) : null}

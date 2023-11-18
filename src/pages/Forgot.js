@@ -27,7 +27,7 @@ const Forgot = () => {
   const Username =
     username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
-  const url = "https://mukuru1.000webhostapp.com/forget.php";
+  const url = "http://localhost/back-end/forget.php";
 
   const HandleSubmit = useCallback(
     (e) => {

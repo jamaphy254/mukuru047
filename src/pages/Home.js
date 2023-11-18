@@ -32,7 +32,7 @@ const Home = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "https://mukuru1.000webhostapp.com/posts.php";
+    const url = "http://localhost/back-end/posts.php";
 
     axios
       .get(url)

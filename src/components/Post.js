@@ -10,7 +10,7 @@ import TotalComments from "./TotalComments";
 const Post = ({ item, user_id, user_name, user_profile, admin }) => {
   const navigate = useNavigate();
 
-  const url = "https://mukuru1.000webhostapp.com/likes.php";
+  const url = "http://localhost/back-end/likes.php";
 
   const ADDLike = (post_id, recipient_user_id) => {
     let fData = new FormData();
@@ -45,7 +45,7 @@ const Post = ({ item, user_id, user_name, user_profile, admin }) => {
   //   prevOpenedRow = row[index];
   // };
 
-  // const url1 = "https://mukuru1.000webhostapp.com/posts.php";
+  // const url1 = "http://localhost/back-end/posts.php";
 
   // const DeletePost = (post_id) => {
   //   let fData = new FormData();
@@ -74,7 +74,7 @@ const Post = ({ item, user_id, user_name, user_profile, admin }) => {
           {item.user_profile ? (
             <img
               className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-              src={`https://mukuru1.000webhostapp.com/${item.user_profile}`}
+              src={`http://localhost/back-end/${item.user_profile}`}
               alt="profile"
             />
           ) : (
@@ -131,7 +131,7 @@ const Post = ({ item, user_id, user_name, user_profile, admin }) => {
         {item.post_media ? (
           <img
             className="w-[97%] 2xl:h-[490px] rounded-md"
-            src={`https://mukuru1.000webhostapp.com/${item.post_media}`}
+            src={`http://localhost/back-end/${item.post_media}`}
             alt=""
           />
         ) : null}

@@ -28,7 +28,7 @@ const NewPost = () => {
   const text =
     post_text.charAt(0).toUpperCase() + post_text.slice(1).toLowerCase();
 
-  const url = "https://mukuru1.000webhostapp.com/posts.php";
+  const url = "http://localhost/back-end/posts.php";
 
   const UploadPost = (e) => {
     e.preventDefault();

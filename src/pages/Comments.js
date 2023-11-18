@@ -45,7 +45,7 @@ const Comments = () => {
   const Comment =
     comment.charAt(0).toUpperCase() + comment.slice(1).toLowerCase();
 
-  const url1 = "https://mukuru1.000webhostapp.com/comments.php";
+  const url1 = "http://localhost/back-end/comments.php";
 
   const AddComment = (e) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ const Comments = () => {
     setComment("");
   };
 
-  const url = "https://mukuru1.000webhostapp.com/likes.php";
+  const url = "http://localhost/back-end/likes.php";
 
   const ADDLike = () => {
     let fData = new FormData();
@@ -98,8 +98,8 @@ const Comments = () => {
       navigate("/login");
     }
 
-    const url = "https://mukuru1.000webhostapp.com/comments.php";
-    const url1 = "https://mukuru1.000webhostapp.com/likes.php";
+    const url = "http://localhost/back-end/comments.php";
+    const url1 = "http://localhost/back-end/likes.php";
 
     Promise.all([
       axios.get(url, { params: { post_id: post_id } }),
@@ -156,7 +156,7 @@ const Comments = () => {
                   {state.user_profile ? (
                     <img
                       className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                      src={`https://mukuru1.000webhostapp.com/${state.user_profile}`}
+                      src={`http://localhost/back-end/${state.user_profile}`}
                       alt="profile"
                     />
                   ) : (
@@ -183,7 +183,7 @@ const Comments = () => {
                   {state.post_media ? (
                     <img
                       className="w-[95%] 2xl:h-[490px] rounded-md"
-                      src={`https://mukuru1.000webhostapp.com/${state.post_media}`}
+                      src={`http://localhost/back-end/${state.post_media}`}
                       alt="profile"
                     />
                   ) : null}

@@ -23,7 +23,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [user_profile, setUser_profile] = useState("");
 
-  const url = "https://mukuru1.000webhostapp.com/profile.php";
+  const url = "http://localhost/back-end/profile.php";
 
   const ChangePhoto = (e) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ const Profile = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "https://mukuru1.000webhostapp.com/profile.php";
+    const url = "http://localhost/back-end/profile.php";
 
     axios.get(url, { params: { user_id: user_id } }).then((res) => {
       setData(res.data[0]);
@@ -117,7 +117,7 @@ const Profile = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
+                  src={`http://localhost/back-end/${data.user_profile}`}
                   alt="profile"
                 />
               ) : (

@@ -7,6 +7,7 @@ import axios from "axios";
 import Post from "../components/Post";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { URL } from "../API";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Home = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "http://localhost/back-end/posts.php";
+    const url = `${URL}posts.php`;
 
     axios
       .get(url)
@@ -84,10 +85,6 @@ const Home = () => {
 
   return (
     <div className="flex justify-start items-start">
-      {/* {!user.length ? (
-        navigate("/login")
-      ) : (
-        <> */}
       <Header />
       <div className="hidden 2xl:flex mt-14 mx-8 ">
         <NewPost user_id={user_id} />
@@ -131,8 +128,6 @@ const Home = () => {
           )}
         </div>
       </div>
-      {/* </>
-      )} */}
     </div>
   );
 };

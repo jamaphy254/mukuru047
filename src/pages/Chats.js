@@ -7,6 +7,7 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { NetStatus } from "../components/NetStatus";
+import { URL } from "../API";
 
 export const People = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const People = () => {
       navigate("/login");
     }
 
-    const url = "http://localhost/back-end/users.php";
+    const url = `${URL}users.php`;
 
     axios
       .get(url, { params: { user_id: user_id } })
@@ -130,7 +131,7 @@ export const People = () => {
                       {item.user_profile ? (
                         <img
                           className="w-[45px] h-[45px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                          src={`http://localhost/back-end/${item.user_profile}`}
+                          src={`${URL}${item.user_profile}`}
                           alt="profile"
                         />
                       ) : (

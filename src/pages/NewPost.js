@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { URL } from "../API";
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const NewPost = () => {
   const text =
     post_text.charAt(0).toUpperCase() + post_text.slice(1).toLowerCase();
 
-  const url = "http://localhost/back-end/posts.php";
+  const url = `${URL}posts.php`;
 
   const UploadPost = (e) => {
     e.preventDefault();

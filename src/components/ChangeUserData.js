@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import { URL } from "../API";
 
 const ChangeUserData = ({
   user_id,
@@ -82,7 +83,7 @@ const ChangeUserData = ({
     }
   };
 
-  const url = "http://localhost/back-end/profile.php";
+  const url = `${URL}profile.php`;
 
   const HandleSubmit = (e) => {
     e.preventDefault();

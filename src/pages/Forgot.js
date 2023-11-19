@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Reset from "../components/Reset";
 import login from "../assets/IMG_2577.JPG";
+import { URL } from "../API";
 
 const Forgot = () => {
   const [name, setName] = useState("");
@@ -27,7 +28,7 @@ const Forgot = () => {
   const Username =
     username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
-  const url = "http://localhost/back-end/forget.php";
+  const url = `${URL}forget.php`;
 
   const HandleSubmit = useCallback(
     (e) => {
@@ -60,7 +61,7 @@ const Forgot = () => {
         clearInputs();
       }
     },
-    [Name, Username, name, username]
+    [url, Name, Username, name, username]
   );
 
   const [verify, setVerify] = useState();

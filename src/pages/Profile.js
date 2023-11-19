@@ -7,6 +7,7 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { NavBar } from "../components/Header";
+import { URL } from "../API";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [user_profile, setUser_profile] = useState("");
 
-  const url = "http://localhost/back-end/profile.php";
+  const url = `${URL}profile.php`;
 
   const ChangePhoto = (e) => {
     e.preventDefault();
@@ -69,7 +70,6 @@ const Profile = () => {
     if (!user.length) {
       navigate("/login");
     }
-    const url = "http://localhost/back-end/profile.php";
 
     axios.get(url, { params: { user_id: user_id } }).then((res) => {
       setData(res.data[0]);
@@ -95,10 +95,6 @@ const Profile = () => {
   };
   return (
     <div className="flex flex-col  2xl:pl-52 bg-secondary">
-      {/* {!user.length ? (
-        navigate("/login")
-      ) : (
-        <> */}
       <NavBar />
       <div className="flex flex-col justify-between pt-14">
         <h2 className="font-poppins text-4xl font-bold text-center pt-2 2xl:text-start 2xl:pl-16 2xl:ml-5 md:p-2">
@@ -117,7 +113,7 @@ const Profile = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`http://localhost/back-end/${data.user_profile}`}
+                  src={`${URL}${data.user_profile}`}
                   alt="profile"
                 />
               ) : (
@@ -150,8 +146,6 @@ const Profile = () => {
           </>
         )}
       </div>
-      {/* </>
-      )} */}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { URL } from "../API";
 
 const Notifications = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Notifications = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost/back-end/notifications.php";
+  const url = `${URL}notifications.php`;
 
   const OpenNotification = (item) => {
     navigate("/comments", { state: item });
@@ -156,7 +157,7 @@ const Notifications = () => {
                       {item.sender_user_profile ? (
                         <img
                           className="w-[45px] h-[45px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                          src={`http://localhost/back-end/${item.sender_user_profile}`}
+                          src={`${URL}${item.sender_user_profile}`}
                           alt="profile"
                         />
                       ) : (

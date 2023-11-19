@@ -54,6 +54,7 @@ const Notifications = () => {
   };
 
   useEffect(() => {
+    const url = "http://localhost/back-end/notifications.php";
     axios
       .get(url, { params: { user_id: user_id } })
       .then((res) => {

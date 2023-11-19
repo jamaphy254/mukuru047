@@ -18,9 +18,9 @@ const Notifications = () => {
   }
 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost/back-end/notifications.php";
+  const url = "https://mukuru1.000webhostapp.com/notifications.php";
 
   const OpenNotification = (item) => {
     navigate("/comments", { state: item });
@@ -54,7 +54,6 @@ const Notifications = () => {
   };
 
   useEffect(() => {
-    const url = "http://localhost/back-end/notifications.php";
     axios
       .get(url, { params: { user_id: user_id } })
       .then((res) => {
@@ -140,7 +139,7 @@ const Notifications = () => {
             <Loading />
           ) : (
             <>
-              {data.length === 0 ? (
+              {!data.length ? (
                 <div className="flex items-center justify-center h-[85%]">
                   <p className="text-base italic">No notifications.</p>
                 </div>

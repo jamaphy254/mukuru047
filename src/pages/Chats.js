@@ -138,7 +138,7 @@ export const People = () => {
                         <FaUserCircle className=" h-[45px] w-[45px] bg-[#999] rounded-full text-[#777]" />
                       )}
                       <div className=" flex justify-between items-center cursor-pointer px-1 w-[85%]">
-                        <div className="w-[80%]">
+                        <div className="w-[80%] bg-danger">
                           <p className="font-poppins text-base font-semibold">
                             {item.user_name}
                           </p>

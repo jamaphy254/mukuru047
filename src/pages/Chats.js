@@ -113,7 +113,7 @@ export const People = () => {
             <Loading />
           ) : (
             <>
-              {users.length === 0 ? (
+              {!users.length ? (
                 <div className="flex items-center justify-center h-[85%]">
                   <p className="text-base italic">User list is empty.</p>
                 </div>

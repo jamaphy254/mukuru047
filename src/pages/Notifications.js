@@ -139,7 +139,7 @@ const Notifications = () => {
             <Loading />
           ) : (
             <>
-              {data.length === 0 ? (
+              {!data.length ? (
                 <div className="flex items-center justify-center h-[85%]">
                   <p className="text-base italic">No notifications.</p>
                 </div>

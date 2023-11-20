@@ -21,11 +21,7 @@ const Notifications = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-<<<<<<< HEAD
-  const url = "https://mukuru1.000webhostapp.com/notifications.php";
-=======
   const url = `${URL}notifications.php`;
->>>>>>> remote
 
   const OpenNotification = (item) => {
     navigate("/comments", { state: item });
@@ -161,11 +157,7 @@ const Notifications = () => {
                       {item.sender_user_profile ? (
                         <img
                           className="w-[45px] h-[45px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-<<<<<<< HEAD
-                          src={`https://mukuru1.000webhostapp.com/${item.sender_user_profile}`}
-=======
                           src={`${URL}${item.sender_user_profile}`}
->>>>>>> remote
                           alt="profile"
                         />
                       ) : (

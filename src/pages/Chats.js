@@ -143,8 +143,8 @@ export const People = () => {
                             {item.user_name}
                           </p>
                           <p className="font-poppins text-sm font-medium">
-                            {item.user_about.length > 36
-                              ? item.user_about.slice(0, 36) + "..."
+                            {item.user_about.length > 34
+                              ? item.user_about.slice(0, 34) + "..."
                               : item.user_about}
                           </p>
                         </div>

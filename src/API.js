@@ -1,7 +1,8 @@
 // import { useEffect, useState } from "react";
 // import moment from "moment/moment";
 
-export const URL = "http://localhost/back-end/";
+// export const URL = "http://localhost/back-end/";
+export const URL = "https://mukuru1.000webhostapp.com/";
 
 // const created_on = () => {
 //   const [currentDate, setCurrentDate] = useState("");

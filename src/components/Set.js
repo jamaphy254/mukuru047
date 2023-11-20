@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import { URL } from "../API";
 
 const Set = ({ back }) => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Set = ({ back }) => {
     setConfPassword("");
   };
 
-  const url = "http://localhost/mukuru047-backend/forget.php";
+  const url = `${URL}forget.php;`;
 
   const HandleSubmit = (e) => {
     e.preventDefault();

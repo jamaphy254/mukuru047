@@ -10,6 +10,7 @@ import CommentList from "../components/CommentList";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { NavBar } from "../components/Header";
+import { URL } from "../API";
 
 const Comments = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const Comments = () => {
   const Comment =
     comment.charAt(0).toUpperCase() + comment.slice(1).toLowerCase();
 
-  const url1 = "https://mukuru1.000webhostapp.com/comments.php";
+  const url = `${URL}comments.php`;
 
   const AddComment = (e) => {
     e.preventDefault();
@@ -62,7 +63,7 @@ const Comments = () => {
     fData.append("isRead", false);
 
     axios
-      .post(url1, fData)
+      .post(url, fData)
       .then((res) => {
         if (res.data.status === "200") {
         }
@@ -71,7 +72,7 @@ const Comments = () => {
     setComment("");
   };
 
-  const url = "https://mukuru1.000webhostapp.com/likes.php";
+  const url1 = `${URL}likes.php`;
 
   const ADDLike = () => {
     let fData = new FormData();
@@ -85,7 +86,7 @@ const Comments = () => {
     fData.append("isRead", false);
 
     axios
-      .post(url, fData)
+      .post(url1, fData)
       .then((res) => {
         if (res.data.status === "200") {
         }
@@ -97,9 +98,6 @@ const Comments = () => {
     if (!user.length) {
       navigate("/login");
     }
-
-    const url = "https://mukuru1.000webhostapp.com/comments.php";
-    const url1 = "https://mukuru1.000webhostapp.com/likes.php";
 
     Promise.all([
       axios.get(url, { params: { post_id: post_id } }),
@@ -156,7 +154,7 @@ const Comments = () => {
                   {state.user_profile ? (
                     <img
                       className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-                      src={`https://mukuru1.000webhostapp.com/${state.user_profile}`}
+                      src={`${URL}${state.user_profile}`}
                       alt="profile"
                     />
                   ) : (
@@ -183,7 +181,7 @@ const Comments = () => {
                   {state.post_media ? (
                     <img
                       className="w-[95%] 2xl:h-[490px] rounded-md"
-                      src={`https://mukuru1.000webhostapp.com/${state.post_media}`}
+                      src={`${URL}${state.post_media}`}
                       alt="profile"
                     />
                   ) : null}

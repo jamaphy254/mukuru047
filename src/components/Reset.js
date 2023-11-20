@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Set from "./Set";
+import { URL } from "../API";
 
 const Reset = ({ name, show, back }) => {
   const [code, setCode] = useState("");
@@ -24,8 +25,9 @@ const Reset = ({ name, show, back }) => {
     setCode("");
   };
 
+  const url = `${URL}forget.php`;
+
   const HandleResend = (e) => {
-    const url = "http://localhost/mukuru047-backend/forget.php";
     e.preventDefault();
     let fData = new FormData();
     fData.append("code", firstCode);
@@ -38,8 +40,6 @@ const Reset = ({ name, show, back }) => {
       .then((res) => alert(res.data.alert))
       .catch((err) => alert(err));
   };
-
-  const url = "http://localhost/mukuru047-backend/forget.php";
 
   const HandleSubmit = useCallback(
     (e) => {
@@ -62,7 +62,7 @@ const Reset = ({ name, show, back }) => {
         .catch((err) => alert(err));
       clearInputs();
     },
-    [code, email, username]
+    [url, code, email, username]
   );
 
   useEffect(() => {

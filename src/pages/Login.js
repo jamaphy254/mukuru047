@@ -5,6 +5,7 @@ import { BiHide, BiShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/user/UserSlice";
 import login from "../assets/IMG_2577.JPG";
+import { URL } from "../API";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Login = () => {
   // Convert first letter to uppercase and rest to lowercase
   const Email = email.charAt(0).toUpperCase() + email.slice(1).toLowerCase();
 
-  const url = "https://mukuru1.000webhostapp.com/login.php";
+  const url = `${URL}login.php`;
 
   const HandleSubmit = (e) => {
     e.preventDefault();

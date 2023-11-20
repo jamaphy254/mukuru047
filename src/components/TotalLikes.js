@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { URL } from "../API";
 
 const TotalLikes = ({ post_id, user_id, ADDLike }) => {
   const [like, setLike] = useState([]);
@@ -9,7 +10,7 @@ const TotalLikes = ({ post_id, user_id, ADDLike }) => {
   let like_user_id;
 
   useEffect(() => {
-    const url = "https://mukuru1.000webhostapp.com/likes.php";
+    const url = `${URL}likes.php`;
 
     axios
       .get(url, { params: { post_id: post_id } })

@@ -6,6 +6,7 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { NavBar } from "../components/Header";
+import { URL } from "../API";
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const UserDetails = () => {
       navigate("/login");
     }
 
-    const url = "https://mukuru1.000webhostapp.com/profile.php";
+    const url = `${URL}profile.php`;
 
     axios.get(url, { params: { user_id: state } }).then((res) => {
       setData(res.data[0]);
@@ -56,7 +57,7 @@ const UserDetails = () => {
               {data.user_profile ? (
                 <img
                   className="w-[180px] h-[180px] 2xl:w-[220px] 2xl:h-[220px] rounded-full 2xl:ml-12 p-[2px] border-r-2 border border-primary"
-                  src={`https://mukuru1.000webhostapp.com/${data.user_profile}`}
+                  src={`${URL}${data.user_profile}`}
                   alt="profile"
                 />
               ) : (

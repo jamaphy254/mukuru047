@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ChangeUserData from "./ChangeUserData";
 import axios from "axios";
 import { clearUser } from "../features/user/UserSlice";
+import { URL } from "../API";
 
 const Details = ({ data }) => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Details = ({ data }) => {
     setToggle1(false);
   };
 
-  const url = "https://mukuru1.000webhostapp.com/logout.php";
+  const url = `${URL}logout.php`;
 
   const Logout = () => {
     let fData = new FormData();

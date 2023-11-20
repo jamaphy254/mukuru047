@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { URL } from "../API";
 
 const TotalComments = ({ post_id }) => {
   const [comment, setComment] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = "https://mukuru1.000webhostapp.com/comments.php";
+    const url = `${URL}comments.php`;
 
     axios
       .get(url, { params: { post_id: post_id } })

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
+import { URL } from "../API";
 
 const CommentList = ({ item, post_id, user_id }) => {
   return (
@@ -9,7 +10,7 @@ const CommentList = ({ item, post_id, user_id }) => {
           {item.user_profile ? (
             <img
               className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full p-[2px] border-r-2 border border-primary"
-              src={`https://mukuru1.000webhostapp.com/${item.user_profile}`}
+              src={`${URL}${item.user_profile}`}
               alt="profile"
             />
           ) : (

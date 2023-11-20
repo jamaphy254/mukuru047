@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BiHide, BiShow } from "react-icons/bi";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import login from "../assets/IMG_2577.JPG";
+import { URL } from "../API";
 
 const Signup = () => {
   // const navigate = useNavigate();
@@ -62,7 +63,7 @@ const Signup = () => {
 
   // const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
-  const url = "https://mukuru1.000webhostapp.com/signup.php";
+  const url = `${URL}signup.php`;
 
   const HandleSubmit = (e) => {
     e.preventDefault();

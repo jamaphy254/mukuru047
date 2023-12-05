@@ -27,7 +27,7 @@ const NewPost = () => {
 
   // Convert first letter to uppercase and rest to lowercase
   const text =
-    post_text.charAt(0).toUpperCase() + post_text.slice(1).toLowerCase();
+    post_text.charAt(0).toUpperCase();
 
   const url = `${URL}posts.php`;
 

@@ -100,7 +100,7 @@ const Post = ({ item, user_id, user_name, user_profile, admin }) => {
             ) : null}
           </p>
           <p className="font-poppins text-xs text-[#888]">
-            {item.created_on}
+            {item.post_created_on}
           </p>
         </div>
         {/* {item.user_id === user_id || admin === "Admin" ? (
